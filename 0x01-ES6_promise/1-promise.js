@@ -1,14 +1,14 @@
 export default function (boolean) {
-  return new Promise((resolve, reject) => {
+  return new Promise((accepted, rejected) => {
     const object = {
       status: 200,
       body: 'Success',
     };
 
     if (boolean === true) {
-      resolve(object);
+      accepted(object);
     } else {
-      reject(Error('The fake API is not working currently'));
+      rejected(Error('The fake API is not working currently'));
     }
   });
 }
