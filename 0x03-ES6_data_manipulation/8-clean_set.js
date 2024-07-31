@@ -1,25 +1,19 @@
 export default function cleanSet(set, startString) {
-  if (typeof startString !== 'string' || startString.length === 0) {
-    throw new Error('Invalid startString');
+  const listo = [];
+
+  if (
+    typeof set !== 'object'
+    || typeof startString !== 'string'
+    || startString.length === 0
+  ) {
+    return '';
   }
 
-  let bilan = '';
-  let hasMatch = false;
-
-  set.forEach((value) => {
-    if (value.startsWith(startString)) {
-      hasMatch = true;
-      if (bilan.length > 0) {
-        bilan += '-';
-      }
-      bilan += value.slice(startString.length);
+  for (const elem of set) {
+    if (elem && elem.startsWith(startString)) {
+      listo.push(elem.slice(startString.length));
     }
-  });
-
-  if (!hasMatch) {
-    throw new Error('No matching values found');
   }
 
-  return bilan;
+  return listo.join('-');
 }
- 
