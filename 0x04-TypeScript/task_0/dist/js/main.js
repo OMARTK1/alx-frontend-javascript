@@ -30,3 +30,4 @@ studentsList.forEach(function (student) {
     tbody.appendChild(row);
 });
 document.body.appendChild(table);
+//# sourceMappingURL=main.js.map
